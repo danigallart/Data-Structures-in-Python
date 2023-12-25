@@ -24,3 +24,19 @@ class linkedList():
                 temp = temp.next
                 counter += 1
             return counter
+    def addAtIndex(self, value=None, index=None):
+        new_node = node(value, next=None)
+        if self.head != None:
+            if self.length() > index:
+                temp = self.head
+                for _ in range(index):
+                    prev = temp
+                    temp = temp.next
+                new_node.next = temp
+                prev.next = new_node
+            if self.length() <= index:
+                temp = self.head
+                for _ in range(self.length()-1):
+                    temp = temp.next
+                temp.next = new_node
+
