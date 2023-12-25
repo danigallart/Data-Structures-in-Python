@@ -14,3 +14,13 @@ class linkedList():
             self.head = node(value,old_node)
         else:
             self.head = node(value,None)
+    def length(self):
+        if self.head == None:
+            return 0
+        else:
+            counter = 0
+            temp = self.head
+            while temp != None:
+                temp = temp.next
+                counter += 1
+            return counter
