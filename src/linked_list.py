@@ -27,16 +27,21 @@ class linkedList():
     def addAtIndex(self, value=None, index=None):
         new_node = node(value, next=None)
         if self.head != None:
-            if self.length() > index:
+            if index == 0:
+                self.insertAtBegin(value=value)
+            elif self.length() > index:
                 temp = self.head
                 for _ in range(index):
                     prev = temp
                     temp = temp.next
                 new_node.next = temp
                 prev.next = new_node
-            if self.length() <= index:
+            elif self.length() <= index:
                 temp = self.head
                 for _ in range(self.length()-1):
                     temp = temp.next
                 temp.next = new_node
+        else:
+            self.insertAtBegin(value=value)
 
+mylinkedlist = linkedList()
